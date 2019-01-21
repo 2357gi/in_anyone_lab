@@ -11,4 +11,9 @@ class ShowPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get about" do
+    get show_pages_about_url
+    assert_response :success
+    assert_select "title", "このサイトについて | Fujihalab logger"
+  end
 end
