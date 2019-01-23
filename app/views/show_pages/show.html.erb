@@ -1,0 +1,6 @@
+<%provide(:title, "入退室情報") %>
+<h1>入退室情報</h1>
+<p>現在の入退室情報です。適当にリロードしてください。</p>
+<% @students.each do |student| %>
+  <p><%= student.name %></p>
+<% end %>
