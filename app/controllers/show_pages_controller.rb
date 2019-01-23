@@ -1,5 +1,6 @@
 class ShowPagesController < ApplicationController
   def show
+    @students = Existence.only_enter
   end
 
   def help
