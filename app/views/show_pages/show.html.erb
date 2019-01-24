@@ -1,7 +1,18 @@
 <%provide(:title, "入退室情報") %>
 <h1>入退室情報</h1>
 <p>現在の入退室情報です。適当にリロードしてください。</p>
-<% @students.each do |student| %>
-  <p><%= student.name %> さん</p>
-<% end %>
+<table>
+  <thread>
+    <tr>
+      <th>滞在中</th>
+      <th>総滞在時間</th>
+    </tr>
+  </thread>
+  <% @students.each do |student| %>
+  <tbody>
+    <td><%= student.name %> </td>
+    <td> <%= student.total / 60 %></td>
+  <% end %>
+  </tbody>
+</table>
 <p>が出席しています</p>
