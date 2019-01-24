@@ -14,7 +14,7 @@ class Api::V1::ExistenceController < ApplicationController
         data.update(status: true, enter_time: time)
       else
         diff = time - Time.parse(data.enter_time.to_s)
-        total = diff / 60
+        total += diff / 60
         data.update(status: false, exit_time: time,
                     total: total)
       end
