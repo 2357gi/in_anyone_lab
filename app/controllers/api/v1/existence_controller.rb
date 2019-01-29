@@ -16,10 +16,16 @@ class Api::V1::ExistenceController < ApplicationController
         data.update(status: true, enter_time: time)
         logger.debug data.errors.inspect
       else
-        diff = time - Time.parse(data.enter_time.to_s)
-        total = diff / 60 + data.total
+        diff = (time - Time.parse(data.enter_time.to_s)) / 60
+        total = diff + data.total
         data.update(status: false, exit_time: time,
                     total: total)
+
+        userlog = Userlog.create(name: existence[:name],
+                                 enter_time: existence[:enter_time],
+                                 exit_time: time,
+                                 stay_time: diff)
+        times = Time.now
       end
     end
   end

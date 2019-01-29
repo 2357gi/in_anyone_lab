@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_053139) do
+ActiveRecord::Schema.define(version: 2019_01_29_163531) do
 
   create_table "existences", force: :cascade do |t|
     t.string "name", null: false
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2019_01_23_053139) do
     t.datetime "enter_time"
     t.datetime "exit_time"
     t.integer "total", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "userlogs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "enter_time"
+    t.datetime "exit_time"
+    t.integer "stay_time", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
