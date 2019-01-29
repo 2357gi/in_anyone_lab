@@ -3,11 +3,11 @@ class Api::V1::ExistenceController < ApplicationController
 
   def post
     # post されるパラメータは [{"name": "kento", "status": true}]
+    # post test
+    # shell : curl -X POST -H "Content-Type: application/json" -d '{"name": "Buri", "status": true}' http://0.0.0.0:3000/api/v1/existence
 
     existence = params[:existence]
-    baba = existence
-    babaname=existence[:name]
-    data = Existence.find_by(name: existence[:name])
+    data = Existence.find_or_create_by(name: existence[:name])
     data.status = existence[:status]
     time = Time.now
 
