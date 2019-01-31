@@ -4,15 +4,18 @@
 <table>
   <thread>
     <tr>
-      <th>滞在中</th>
+      <th>氏名</th>
+      <th>ステータス</th>
       <th>総滞在時間</th>
     </tr>
   </thread>
   <% @students.each do |student| %>
   <tbody>
     <td><%= student.name %> </td>
+    <td><%= student.status %></td>
     <td> <%= student.total / 60 %></td>
   <% end %>
   </tbody>
 </table>
-<p>が出席しています</p>
+<p>が入室しています。</p>
+
